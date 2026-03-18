@@ -163,3 +163,48 @@ Add screenshots of the editor, dashboard, and published site inside this README 
 ---
 
 If you'd like, I can now: install frontend dependencies, run the dev server, or attempt to push commits to `https://github.com/shihap12/SmartWebBuilder.git` (you'll need to provide push access/token). Say which action to take next.
+
+## Environment file
+Create a `.env` file at the project root by copying `.env.example` and filling in real values before running the backend.
+
+```bash
+cp .env.example .env
+# then edit .env with your credentials
+```
+
+## Quick run checklist
+
+1. Import the database schema into your MySQL instance:
+
+```sql
+SOURCE database/schema.sql;
+```
+
+2. Create `.env` from `.env.example` and fill values.
+
+3. (Optional) Install PHP dependencies if you use email sending:
+
+```bash
+composer install
+```
+
+4. Start the backend PHP server for development:
+
+```bash
+cd backend
+php -S 0.0.0.0:8000 -t .
+```
+
+5. Install and run the frontend:
+
+```bash
+cd frontend
+npm install --legacy-peer-deps
+npm start
+```
+
+6. Open `http://localhost:3000` for the frontend (or the port shown by the React dev server).
+
+## Done
+The repository contains a ready `.env.example` file. After you set `.env` and start both servers, the frontend will communicate with the backend at the URL set in `REACT_APP_API_URL`.
+
