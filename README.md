@@ -29,7 +29,7 @@ Smart Website Builder is a lightweight mini CMS and visual website builder that 
 
 - `database/` — SQL schema, initial migrations
   - `schema.sql` — full MySQL schema with tables and foreign keys
-- `backend/` — PHP REST API
+-- `SmartWebBuilder-backend/` — PHP REST API (renamed for XAMPP compatibility)
   - `index.php` — API entry point
   - `config/` — database and CORS configuration
   - `helpers/` — response, JWT, mailer, rate limiting
@@ -80,7 +80,8 @@ composer require phpmailer/phpmailer
 3. Serve the PHP API (example using built-in PHP server for local development):
 
 ```bash
-cd backend
+# If you intend to place the backend inside XAMPP htdocs, folder is renamed:
+cd SmartWebBuilder-backend
 php -S 0.0.0.0:8000 -t .
 ```
 
@@ -165,6 +166,7 @@ Add screenshots of the editor, dashboard, and published site inside this README 
 If you'd like, I can now: install frontend dependencies, run the dev server, or attempt to push commits to `https://github.com/shihap12/SmartWebBuilder.git` (you'll need to provide push access/token). Say which action to take next.
 
 ## Environment file
+
 Create a `.env` file at the project root by copying `.env.example` and filling in real values before running the backend.
 
 ```bash
@@ -191,7 +193,8 @@ composer install
 4. Start the backend PHP server for development:
 
 ```bash
-cd backend
+# folder: SmartWebBuilder-backend
+cd SmartWebBuilder-backend
 php -S 0.0.0.0:8000 -t .
 ```
 
@@ -206,5 +209,5 @@ npm start
 6. Open `http://localhost:3000` for the frontend (or the port shown by the React dev server).
 
 ## Done
-The repository contains a ready `.env.example` file. After you set `.env` and start both servers, the frontend will communicate with the backend at the URL set in `REACT_APP_API_URL`.
 
+The repository contains a ready `.env.example` file. After you set `.env` and start both servers, the frontend will communicate with the backend at the URL set in `REACT_APP_API_URL`.
